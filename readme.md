@@ -8,7 +8,7 @@ Watch example on [Vimeo](https://vimeo.com/264324724).
 
 ## Getting Started
 
-Add the style, js library, and jQuery to your project.
+Add the stylesheet, jQuery, and annotation-genius.js to your project:
 
 ```
 <link rel="stylesheet" href="ag-style.css">
@@ -16,13 +16,13 @@ Add the style, js library, and jQuery to your project.
 <script src="annotation-genius.js"></script>
 ```
 
-In the HTML, add the annotation sidebar:
+Add the annotation sidebar:
 
 ```
 <div id="annotation-sidebar" class="annotation-closed"></div>
 ```
 
-Wrap the text you'd like to annotate with spans:
+Wrap the annotated material with spans:
 
 ```
 <span class="ag" id="1">Lorem ipsum dolor sit amet,</span>
@@ -30,7 +30,9 @@ Wrap the text you'd like to annotate with spans:
 etc.
 ```
 
-Finally, add your own annotation data corresponding to those spans. Annotation-Genius.js will draw from "id" and "annotation"
+Finally, add your annotation data corresponding to spans.
+
+Annotation-Genius.js draws from the properties "id" and "annotation"
 
 ```
 const annotationData = [
