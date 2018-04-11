@@ -1,8 +1,9 @@
 # Annotation Genius
 
+[![See it in action on Vimeo](https://i.imgur.com/ThjiQ9T.png)](https://vimeo.com/264324724)
+
 Add Genius-style annotations to your project!
 
-[![See it in action on Vimeo](https://i.imgur.com/ThjiQ9T.png)](https://vimeo.com/264324724)
 Watch example on [Vimeo](https://vimeo.com/264324724).
 
 ## Getting Started
