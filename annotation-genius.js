@@ -1,3 +1,5 @@
+'use strict';
+
 $( document ).ready(function() {
     const sidebarHeight = $( document ).height();
     $( "div#annotation-sidebar" ).css("height", sidebarHeight);
