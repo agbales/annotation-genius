@@ -8,15 +8,14 @@ Watch example on [Vimeo](https://vimeo.com/264324724).
 
 ## Getting Started
 
-Add the stylesheet, jQuery, and annotation-genius.js to your project:
+Add the stylesheet & annotation-genius.js to your project:
 
 ```
 <link rel="stylesheet" href="ag-style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="annotation-genius.js"></script>
 ```
 
-Add the annotation sidebar:
+Add the annotation sidebar in document body:
 
 ```
 <div id="annotation-sidebar" class="annotation-closed"></div>
