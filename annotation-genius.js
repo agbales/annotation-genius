@@ -1,38 +1,57 @@
 'use strict';
 
-$( document ).ready(function() {
-    const sidebarHeight = $( document ).height();
-    $( "div#annotation-sidebar" ).css("height", sidebarHeight);
+document.addEventListener('DOMContentLoaded', function() {
 
-    const sidebar = '<div class="annotation_sidebar_arrow"><svg height="25" width="25"><path stroke="#b2d7fe" stroke-width="2" stroke-linecap="round" d="M9.37 21.32L0 10.66 9.37 0l1.5 1.32-8.21 9.34L10.87 20l-1.5 1.32"></path></svg></div><span class="close "><svg width="50" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="11" x2="11" y2="1" stroke="black" stroke-width="2"/><line x1="1" y1="1" x2="11" y2="11" stroke="black" stroke-width="2"/></svg></span><br><div class="annotation-box"><h3><span class="original"></span></h3><br><span class="annotation"></span></div>'
+    const sidebar = document.getElementById('annotation-sidebar');
 
-    $( "div#annotation-sidebar" ).append(sidebar);
+    // Append Sidebar Elements
+    const sidebarInnerElements = '<div id="annotation_sidebar_arrow"><svg height="25" width="25"><path stroke="#b2d7fe" stroke-width="2" stroke-linecap="round" d="M9.37 21.32L0 10.66 9.37 0l1.5 1.32-8.21 9.34L10.87 20l-1.5 1.32"></path></svg></div><span id="close-annotation-sidebar"><svg width="50" height="25" version="1.1" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="11" x2="11" y2="1" stroke="black" stroke-width="2"/><line x1="1" y1="1" x2="11" y2="11" stroke="black" stroke-width="2"/></svg></span><br><div class="annotation-box"><h3><span class="original"></span></h3><br><span class="annotation"></span></div>'
+
+    sidebar.insertAdjacentHTML( 'beforeend', sidebarInnerElements );
+
+    // Sidebar Height
+    const sidebarHeight = document.body.scrollHeight + 10 + 'px';
+    document.getElementById('annotation-sidebar').style.height = sidebarHeight;
+
+    // Event listeners
+    // All Annotated Spans
+    [].forEach.call(document.querySelectorAll('span.ag'), function(el) {
+      el.addEventListener('click', function(e) {
+
+        const spanHeight = e.pageY - 30;
+        const arrowTranslate = 'translate(-35px,' + spanHeight + 'px)';
+
+        document.getElementById('annotation_sidebar_arrow').style.transform = arrowTranslate;
+
+        const originalSpanText = el.textContent
+        const id = this.id - 1;
+
+        const original = sidebar.getElementsByClassName("original")[0];
+        const annotation = sidebar.getElementsByClassName("annotation")[0];
+
+        original.innerHTML = originalSpanText;
+        annotation.innerHTML = annotationData[id].annotation;
+
+        sidebar.classList.remove('annotation-closed');
+      });
+
+      // Close Sidebar Button
+      document.getElementById('close-annotation-sidebar').addEventListener('click', function(){
+        sidebar.classList.add('annotation-closed');
+      });
+
+      // On Mouseup, Close Sidebar
+      document.body.addEventListener('mouseup', function(e) {
+        console.log(sidebar)
+        if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0) {
+            sidebar.classList.add('annotation-closed');
+        }
+      });
+
+    });
 });
 
-// Event listeners
-$( "span.ag" ).click(function(e) {
-    const arrowPosition = e.pageY - 30;
-    $( "div.annotation_sidebar_arrow" ).css({"transform": "translate(-35px," + arrowPosition + "px)"});
 
-    // need to fix text height for annottions later in the page. Perhaps...
-    // $( "div.annotation-box" ).css({"margin-top": arrowPosition - wh + "px"});
-    const original = $(this).text();
-    const id = this.id - 1;
-    $( "div#annotation-sidebar" ).find( "span.original" ).html( original );
-    $( "div#annotation-sidebar" ).find( "span.annotation" ).html( annotationData[id].annotation);
-    $( "div#annotation-sidebar" ).removeClass( "annotation-closed" );
-  });
-
-$( "span.close" ).click(function() {
-  $( "div#annotation-sidebar" ).addClass( "annotation-closed" );
-});
-
-$(document).mouseup(function(e){
-  const sidebar = $("#annotation-sidebar");
-  if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0) {
-      sidebar.addClass( "annotation-closed");
-  }
-});
 
 // User Data Example
 const annotationData = [

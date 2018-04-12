@@ -35,7 +35,7 @@ html, body {
   transition: all 0.5s ease;
 }
 
-span.close {
+#close-annotation-sidebar {
 
 }
 
@@ -58,12 +58,13 @@ span.annotation {
   margin-top: 50px;
 }
 
-.annotation_sidebar_arrow {
+#annotation_sidebar_arrow {
   z-index: -1;
   background-color: white;
   width: 15px;
   height: 20px;
 }
-.annotation_sidebar_arrow svg path{
+
+#annotation_sidebar_arrow svg path{
   fill: #b2d7fe;
 }
