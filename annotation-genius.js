@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // On Mouseup, Close Sidebar
       document.body.addEventListener('mouseup', function(e) {
-        console.log(sidebar)
         if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0) {
             sidebar.classList.add('annotation-closed');
         }
