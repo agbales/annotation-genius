@@ -7,9 +7,12 @@ html, body {
   background-color: #ffff64;
 }
 
-.container {
-  width:500px;
-  margin:50px;
+.annotation-closed {
+  right: -125% !important;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .annotation-genius span:hover {
@@ -32,12 +35,24 @@ html, body {
   padding: 20px;
 }
 
-.annotation-closed {
-  right: -125% !important;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+#annotation_sidebar_arrow {
+  z-index: -1;
+  background-color: white;
+  width: 15px;
+  height: 20px;
+}
+
+#annotation_sidebar_arrow svg path{
+  fill: #b2d7fe;
+}
+
+.container {
+  width:500px;
+  margin:50px;
+}
+
+span.annotation {
+  margin-top: 50px;
 }
 
 span.original {
@@ -53,19 +68,4 @@ span.original::before {
   font: 700 2.25em/1 "Times New Roman";
   color: inherit;
   opacity: .75;
-}
-
-span.annotation {
-  margin-top: 50px;
-}
-
-#annotation_sidebar_arrow {
-  z-index: -1;
-  background-color: white;
-  width: 15px;
-  height: 20px;
-}
-
-#annotation_sidebar_arrow svg path{
-  fill: #b2d7fe;
 }
