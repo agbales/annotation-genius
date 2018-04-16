@@ -8,17 +8,11 @@ Watch example on [Vimeo](https://vimeo.com/264324724).
 
 ## Getting Started
 
-Add the stylesheet & annotation-genius.js to your project:
+Add the stylesheet & JS to your project:
 
 ```
 <link rel="stylesheet" href="ag-style.css">
 <script src="annotation-genius.js"></script>
-```
-
-Add the annotation sidebar in document body:
-
-```
-<div id="annotation-sidebar" class="annotation-closed"></div>
 ```
 
 Wrap the annotated material with spans:
