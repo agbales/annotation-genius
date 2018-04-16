@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // On Mouseup, Close Sidebar
       document.body.addEventListener('mouseup', function(e) {
-        if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0) {
+        if (e.target !== sidebar && !sidebar.contains(e.target)) {
             sidebar.classList.add('annotation-closed');
         }
       });
